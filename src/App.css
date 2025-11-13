@@ -1,39 +1,36 @@
-/* src/App.css - VERSÃO FINAL (Página Única) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
-/* --- RESET GERAL --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
 
 body {
-  background-color: #ffffff; /* Fundo branco */
-  color: #222;
+  background-color: rgb(240, 242, 212);
+  color: #333;
 }
-
-/* --------------------------------- */
-/* --- LAYOUT PRINCIPAL --- */
-/* --------------------------------- */
 
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  border-bottom: 1px solid #eee;
-  background-color: rgb(240, 242, 212);
-  position: relative; 
-  z-index: 10;
+  background-color: white;
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
   font-size: 1.5em;
   font-weight: bold;
   color: #c90606;
+  cursor: pointer;
 }
 
 .nav-button {
@@ -44,21 +41,64 @@ body {
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.nav-button:hover {
+  background-color: #a10505;
 }
 
-/* --- SEÇÃO DE UPLOAD --- */
 .hero-section {
-  padding: 50px 20px;
+  padding: 60px 20px;
   text-align: center;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #eee;
-  min-height: 400px; /* Altura mínima para o "miolo" */
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/1.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  margin: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-.hero-section h2 { font-size: 2.5em; margin-bottom: 15px; }
-.hero-section p { font-size: 1.2em; color: #555; margin-bottom: 30px; }
+
+.hero-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.hero-section h2 { 
+  font-size: 3em;
+  margin-bottom: 15px; 
+  color: white;
+}
+.hero-section p { 
+  font-size: 1.2em; 
+  color: #f0f0f0;
+  margin-bottom: 30px; 
+}
+.sub-text {
+  font-size: 1.2em;
+  color: #f0f0f0;
+  margin-top: 10px;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.hero-section.tool-page-hero {
+  background-image: none;
+  background-color: #ffffff;
+  color: #333;
+}
+.hero-section.tool-page-hero h2 {
+  color: #333;
+}
+.hero-section.tool-page-hero p {
+  color: #555;
+}
 
 .upload-container-dash {
   display: flex;
@@ -71,28 +111,41 @@ input[type="file"] { display: none; }
 .custom-file-upload-dash {
   border: 1px solid #ccc; padding: 10px 20px; cursor: pointer;
   background-color: #fff; border-radius: 5px; font-weight: 500;
+  transition: background-color 0.2s ease-in-out;
 }
 .custom-file-upload-dash:hover { background-color: #f0f0f0; }
 #file-name-dash { color: #555; font-style: italic; }
 
 .transcribe-button-dash {
-  background-color: #c90606; color: white; padding: 12px 25px;
+  background-color: #c90606; 
+  color: white; 
+  padding: 12px 25px;
   border: none; border-radius: 5px; font-size: 16px;
   font-weight: bold; cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.transcribe-button-dash:hover {
+  background-color: #a10505;
 }
 .transcribe-button-dash:disabled { background-color: #a0a0a0; }
 
-
-/* --- SEÇÃO DO PLAYER (Substitui o Upload) --- */
 .player-section {
   padding: 30px 40px;
   text-align: center;
-  background-color: #f0f2f5; /* Um cinza um pouco mais escuro */
+  background-color: #ffffff;
   min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.player-section h2 {
+  font-size: 2.5em; 
+  margin-bottom: 20px; 
+  color: #333;
 }
 
 .back-button-main {
@@ -104,41 +157,27 @@ input[type="file"] { display: none; }
   padding: 8px 15px;
   border-radius: 5px;
   margin-bottom: 20px;
-  align-self: flex-start; /* Alinha o botão à esquerda */
+  align-self: flex-start;
 }
 
-/* O wrapper do player ajustável */
 .video-wrapper-responsive {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  /* NOVO! Centraliza o player que é menor que o max-width */
   margin: 0 auto;
 }
-
-/* --- A CORREÇÃO DEFINITIVA DO VÍDEO --- */
 .video-wrapper-responsive video {
-  /* O vídeo decide seu tamanho, até um limite */
-  width: auto;
-  height: auto;
-
-  /* Limites para não vazar da tela */
-  max-width: 100%; 
-  /* Limita a altura a 75% da TELA (vh = viewport height) */
-  max-height: 75vh; 
-  
+  width: auto; height: auto;
+  max-width: 100%; max-height: 75vh; 
   border-radius: 8px;
   background-color: #000;
-  /* Garante que o 'auto' funcione corretamente */
   display: block;
-  margin: 0 auto; /* Centraliza o vídeo vertical */
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
-/* A legenda sobreposta */
 .video-subtitle-overlay-player {
   position: absolute;
-  bottom: 8%;
-  left: 50%;
+  bottom: 8%; left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -152,24 +191,142 @@ input[type="file"] { display: none; }
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
+.content-section, .mission-section, .carousel-section {
+  padding: 40px 40px;
+  max-width: 1200px;
+  margin: 30px auto;
+  text-align: left;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
-/* --- SEÇÕES FALSAS (Maquete) --- */
-.carousel-section {
-  padding: 30px 40px;
-}/
-.carousel-section h3 { font-size: 1.4em; margin-bottom: 15px; }
+.content-section h3 {
+  font-size: 1.8em; margin-bottom: 20px;
+  color: #333; text-align: center;
+}
+.content-section p {
+  font-size: 1.1em; color: #444;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  text-align: justify;
+}
+
+.mission-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+.mission-card {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.mission-card h4 {
+  font-size: 1.3em;
+  color: #c90606;
+  margin-bottom: 15px;
+}
+.mission-card p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.carousel-section h3 { 
+  font-size: 1.4em; margin-bottom: 15px; 
+  text-align: left; 
+}
 .carousel-mockup {
-  display: flex; gap: 15px;
-  overflow-x: auto; padding-bottom: 10px;
+  display: flex; gap: 20px;
+  overflow-x: auto; padding-bottom: 20px;
 }
 .carousel-card-mockup {
-  width: 220px; height: 120px; background-color: #eee;
-  border: 1px solid #ddd; border-radius: 5px; display: flex;
-  align-items: center; justify-content: center; color: #888;
-  font-weight: bold; flex-shrink: 0;
+  width: 250px; height: 140px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-weight: 500;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.carousel-card-mockup:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Mensagens de Erro/Loading --- */
+.footer-section {
+  padding: 40px 40px;
+  text-align: left;
+  background-color: #333;
+  color: #f0f0f0;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+.footer-col h4 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #ffffff;
+  border-bottom: 2px solid #c90606;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.footer-col p {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #ccc;
+  line-height: 1.6;
+}
+.pix-info {
+  margin-top: 10px;
+  padding: 15px;
+  background-color: #444;
+  border-radius: 8px;
+}
+.pix-info strong {
+  font-size: 1.1em;
+  color: #ffffff;
+}
+.pix-info span {
+  font-size: 1em;
+  font-weight: bold;
+  color: rgb(240, 242, 212);
+  margin-top: 5px;
+  display: block;
+}
+.social-links a {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #f0f0f0;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.social-links a:hover {
+  color: #c90606;
+}
+
+@media (max-width: 768px) {
+  .mission-section, .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+
 .error-message {
   color: #D8000C; background-color: #FFD2D2; border: 1px solid #D8000C;
   padding: 10px; border-radius: 5px; margin-top: 20px;
