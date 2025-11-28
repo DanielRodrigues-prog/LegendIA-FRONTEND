@@ -1,70 +1,254 @@
-# Getting Started with Create React App
+# LegendIA - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Interface web desenvolvida em React para a plataforma LegendIA, um sistema de transcrição automática de vídeos e áudios com legendas em tempo real, criado em parceria com a Associação do Amor Inclusivo (AAI).
 
-## Available Scripts
+## Sobre o Projeto
 
-In the project directory, you can run:
+O LegendIA é uma ferramenta de acessibilidade que utiliza inteligência artificial para gerar legendas automáticas em vídeos e áudios, promovendo a inclusão de pessoas com deficiência auditiva. Este frontend oferece uma interface intuitiva e responsiva para upload, processamento e visualização de mídia com legendas sincronizadas.
 
-### `npm start`
+## Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Página Institucional**: Apresentação da Associação do Amor Inclusivo
+- **Upload de Mídia**: Suporte para arquivos de vídeo e áudio
+- **Transcrição Automática**: Integração com API backend para processamento
+- **Player com Legendas**: Visualização de legendas sincronizadas em tempo real
+- **Interface Responsiva**: Design adaptável para diferentes dispositivos
+- **Navegação Intuitiva**: Alternância simples entre páginas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologias Utilizadas
 
-### `npm test`
+- **React 19.2.0** - Biblioteca JavaScript para construção de interfaces
+- **React DOM 19.2.0** - Renderização de componentes React
+- **React Scripts 5.0.1** - Scripts e configuração do Create React App
+- **CSS3** - Estilização customizada
+- **Google Fonts (Poppins)** - Tipografia moderna
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalação
 
-### `npm run build`
+### Pré-requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (versão 14 ou superior)
+- npm ou yarn
+- Backend LegendIA rodando em `http://127.0.0.1:5000`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Passo a Passo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone o repositório**
+```bash
+git clone <url-do-repositorio>
+cd legenda-pro-frontend
+```
 
-### `npm run eject`
+2. **Instale as dependências**
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Configure o backend**
+   - Certifique-se de que o backend está rodando em `http://127.0.0.1:5000`
+   - O endpoint de transcrição deve estar disponível em `/transcrever`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Inicie o servidor de desenvolvimento**
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. **Acesse a aplicação**
+   - Abra seu navegador em [http://localhost:3000](http://localhost:3000)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Estrutura do Projeto
 
-## Learn More
+```
+legenda-pro-frontend/
+├── public/
+│   ├── index.html          # Template HTML principal
+│   ├── manifest.json       # Configurações PWA
+│   ├── favicon.ico         # Ícone da aplicação
+│   └── robots.txt          # Configurações para crawlers
+├── src/
+│   ├── assets/             # Imagens e recursos
+│   │   ├── logo_amor_inclusivo.png
+│   │   └── 1.png          # Imagem hero
+│   ├── App.js              # Componente principal e roteamento
+│   ├── App.css             # Estilos globais
+│   ├── HomePage.js         # Página institucional da AAI
+│   ├── ToolPage.js         # Página da ferramenta de transcrição
+│   └── index.js            # Ponto de entrada da aplicação
+├── package.json            # Dependências e scripts
+├── .gitignore             # Arquivos ignorados pelo Git
+└── README.md              # Documentação
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Componentes Principais
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### App.js
+Componente raiz que gerencia:
+- Estado global da aplicação
+- Navegação entre páginas (Home/Tool)
+- Header fixo com logo e botões de navegação
 
-### Code Splitting
+### HomePage.js
+Página institucional contendo:
+- Seção hero com logo da AAI
+- História da organização
+- Missão, visão e valores
+- Carrossel de ações
+- Footer com informações de contato e doação
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### ToolPage.js
+Ferramenta de transcrição com:
+- Upload de arquivos de mídia
+- Preview do arquivo selecionado
+- Integração com API de transcrição
+- Player de vídeo com legendas sincronizadas
+- Estados de loading e erro
 
-### Analyzing the Bundle Size
+## Fluxo de Uso
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Página Inicial**: Usuário conhece a AAI e sua missão
+2. **Navegação**: Clica em "Ir para a IA" no header
+3. **Upload**: Seleciona arquivo de vídeo ou áudio
+4. **Transcrição**: Clica em "Transcrever" e aguarda processamento
+5. **Visualização**: Assiste ao vídeo com legendas sincronizadas
+6. **Novo Arquivo**: Pode transcrever outro arquivo ou voltar ao início
 
-### Making a Progressive Web App
+## Integração com Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Endpoint de Transcrição
 
-### Advanced Configuration
+```javascript
+POST http://127.0.0.1:5000/transcrever
+Content-Type: multipart/form-data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Body:
+{
+  video: File
+}
 
-### Deployment
+Response:
+{
+  segmentos: [
+    {
+      start: 0.0,
+      end: 2.5,
+      text: "Texto da legenda"
+    },
+    ...
+  ]
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Tratamento de Erros
 
-### `npm run build` fails to minify
+A aplicação trata os seguintes cenários:
+- Arquivo não selecionado
+- Erro de conexão com backend
+- Resposta de erro do servidor
+- Arquivo em formato inválido
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Customização
+
+### Cores Principais
+
+```css
+--primary-color: #c90606;      /* Vermelho principal */
+--primary-hover: #a10505;      /* Vermelho hover */
+--background: rgb(240, 242, 212); /* Bege claro */
+--text-dark: #333;             /* Texto escuro */
+--white: #ffffff;              /* Branco */
+```
+
+### Fontes
+
+- **Principal**: Poppins (Google Fonts)
+- **Pesos**: 400 (Regular), 500 (Medium), 700 (Bold)
+
+## Responsividade
+
+O design é totalmente responsivo com breakpoints em:
+- **Desktop**: > 768px (3 colunas)
+- **Tablet/Mobile**: ≤ 768px (1 coluna)
+
+## Performance
+
+### Otimizações Implementadas
+
+- Lazy loading de imagens
+- Componentes funcionais com Hooks
+- CSS otimizado sem bibliotecas pesadas
+- Build otimizado com minificação
+- Code splitting automático
+
+## Segurança
+
+### Considerações
+
+- Validação de tipos de arquivo no cliente
+- Sanitização de URLs de vídeo
+- Sem armazenamento local de arquivos sensíveis
+- CORS configurado para ambiente de desenvolvimento
+
+### Configuração de Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz:
+
+```bash
+REACT_APP_API_URL=http://seu-backend.com
+```
+
+Atualize a URL da API em `ToolPage.js`:
+
+```javascript
+const response = await fetch(`${process.env.REACT_APP_API_URL}/transcrever`, {
+  // ...
+});
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+
+**1. Erro de CORS**
+```
+Access to fetch at 'http://127.0.0.1:5000/transcrever' has been blocked by CORS policy
+```
+**Solução**: Configure CORS no backend Flask
+
+**2. Vídeo não carrega**
+```
+Failed to load resource: net::ERR_FILE_NOT_FOUND
+```
+**Solução**: Verifique o formato do arquivo e o tamanho
+
+**3. Legendas não aparecem**
+```
+currentSegment is undefined
+```
+**Solução**: Verifique o formato da resposta da API
+
+## Contribuindo
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/NovaFuncionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
+5. Abra um Pull Request
+
+### Diretrizes de Código
+
+- Use componentes funcionais com Hooks
+- Mantenha componentes pequenos e reutilizáveis
+- Siga o padrão de nomenclatura camelCase
+- Comente código complexo
+- Teste em diferentes navegadores
+
+## Licença
+
+Este projeto foi desenvolvido em parceria com a **Associação do Amor Inclusivo (AAI)** e está disponível para uso educacional e social.
+
+
+💙 **Desenvolvido com amor e tecnologia para promover a inclusão social**
+
+⚽ **LegendIA** - Quebrando barreiras através da tecnologia
