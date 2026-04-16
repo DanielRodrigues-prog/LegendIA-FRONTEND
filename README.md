@@ -1,6 +1,6 @@
 # 🎬 LegendIA — Frontend
 
-> Interface web desenvolvida em React para a plataforma **LegendIA**: ferramenta de acessibilidade que usa Inteligência Artificial para gerar legendas automáticas e sincronizadas em vídeos e áudios. Projeto criado em parceria com a [Associação do Amor Inclusivo (AAI)](https://www.amorinclusivoaai.org.br/).
+> Interface web desenvolvida em React para a plataforma **LegendIA**: ferramenta de acessibilidade que usa Inteligência Artificial para gerar legendas automáticas e sincronizadas em vídeos e áudios. Projeto criado em parceria com a [Associação do Amor Inclusivo (AAI)](https://www.amorinclusivo.org.br/).
 
 ![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat&logo=react&logoColor=black)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat&logo=javascript&logoColor=black)
