@@ -1,254 +1,169 @@
-# LegendIA - Frontend
+# 🎬 LegendIA — Frontend
 
-Interface web desenvolvida em React para a plataforma LegendIA, um sistema de transcrição automática de vídeos e áudios com legendas em tempo real, criado em parceria com a Associação do Amor Inclusivo (AAI).
+> Interface web desenvolvida em React para a plataforma **LegendIA**: ferramenta de acessibilidade que usa Inteligência Artificial para gerar legendas automáticas e sincronizadas em vídeos e áudios. Projeto criado em parceria com a [Associação do Amor Inclusivo (AAI)](https://www.amorinclusivoaai.org.br/).
 
-## Sobre o Projeto
+![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat&logo=react&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-Responsivo-1572B6?style=flat&logo=css3&logoColor=white)
+![License](https://img.shields.io/badge/License-Educacional%20%2F%20Social-blueviolet?style=flat)
 
-O LegendIA é uma ferramenta de acessibilidade que utiliza inteligência artificial para gerar legendas automáticas em vídeos e áudios, promovendo a inclusão de pessoas com deficiência auditiva. Este frontend oferece uma interface intuitiva e responsiva para upload, processamento e visualização de mídia com legendas sincronizadas.
+---
 
-## Funcionalidades
+## 💡 Contexto e motivação
 
-- **Página Institucional**: Apresentação da Associação do Amor Inclusivo
-- **Upload de Mídia**: Suporte para arquivos de vídeo e áudio
-- **Transcrição Automática**: Integração com API backend para processamento
-- **Player com Legendas**: Visualização de legendas sincronizadas em tempo real
-- **Interface Responsiva**: Design adaptável para diferentes dispositivos
-- **Navegação Intuitiva**: Alternância simples entre páginas
+O LegendIA nasceu da necessidade de tornar conteúdos em vídeo e áudio acessíveis para pessoas com deficiência auditiva. Em parceria com a AAI, desenvolvemos uma plataforma que permite que qualquer pessoa faça upload de um arquivo de mídia e receba de volta legendas sincronizadas, geradas automaticamente por IA — sem necessidade de conhecimento técnico.
 
-## Tecnologias Utilizadas
+---
 
-- **React 19.2.0** - Biblioteca JavaScript para construção de interfaces
-- **React DOM 19.2.0** - Renderização de componentes React
-- **React Scripts 5.0.1** - Scripts e configuração do Create React App
-- **CSS3** - Estilização customizada
-- **Google Fonts (Poppins)** - Tipografia moderna
+## ✨ Funcionalidades
 
-## Instalação
+- **Página institucional** — apresentação da AAI, sua missão, história e como apoiar
+- **Upload de mídia** — suporte a arquivos de vídeo e áudio
+- **Transcrição automática** — integração com a API backend (Flask + Whisper/ASR)
+- **Player com legendas sincronizadas** — visualização em tempo real das legendas no vídeo
+- **Design responsivo** — funciona em desktop, tablet e mobile
+
+---
+
+## 🛠️ Tecnologias
+
+| Camada | Tecnologia |
+|---|---|
+| Framework | React 19.2 |
+| Linguagem | JavaScript (ES6+) |
+| Estilização | CSS3 customizado, Google Fonts (Poppins) |
+| Build tool | Create React App (React Scripts 5.0.1) |
+
+---
+
+## ⚙️ Como executar localmente
 
 ### Pré-requisitos
 
-- Node.js (versão 14 ou superior)
+- Node.js 14+
 - npm ou yarn
-- Backend LegendIA rodando em `http://127.0.0.1:5000`
+- [Backend LegendIA](https://github.com/DanielRodrigues-prog) rodando em `http://127.0.0.1:5000`
 
-### Passo a Passo
+### 1. Clone o repositório
 
-1. **Clone o repositório**
 ```bash
-git clone <url-do-repositorio>
-cd legenda-pro-frontend
+git clone https://github.com/DanielRodrigues-prog/LegendIA-FRONTEND.git
+cd LegendIA-FRONTEND
 ```
 
-2. **Instale as dependências**
+### 2. Instale as dependências
+
 ```bash
 npm install
 ```
 
-3. **Configure o backend**
-   - Certifique-se de que o backend está rodando em `http://127.0.0.1:5000`
-   - O endpoint de transcrição deve estar disponível em `/transcrever`
+### 3. Configure as variáveis de ambiente
 
-4. **Inicie o servidor de desenvolvimento**
+```bash
+cp .env.example .env
+# Edite o .env com a URL do seu backend
+```
+
+### 4. Inicie o servidor de desenvolvimento
+
 ```bash
 npm start
 ```
 
-5. **Acesse a aplicação**
-   - Abra seu navegador em [http://localhost:3000](http://localhost:3000)
+Acesse `http://localhost:3000` no navegador.
 
-## Estrutura do Projeto
+---
+
+## 🔧 Variáveis de ambiente
+
+Crie um arquivo `.env` na raiz com base no `.env.example`:
+
+```env
+REACT_APP_API_URL=http://127.0.0.1:5000
+```
+
+---
+
+## 📁 Estrutura do projeto
 
 ```
-legenda-pro-frontend/
+LegendIA-FRONTEND/
 ├── public/
 │   ├── index.html          # Template HTML principal
 │   ├── manifest.json       # Configurações PWA
-│   ├── favicon.ico         # Ícone da aplicação
-│   └── robots.txt          # Configurações para crawlers
+│   └── favicon.ico
 ├── src/
-│   ├── assets/             # Imagens e recursos
-│   │   ├── logo_amor_inclusivo.png
-│   │   └── 1.png          # Imagem hero
-│   ├── App.js              # Componente principal e roteamento
+│   ├── assets/             # Imagens e recursos estáticos
+│   ├── App.js              # Componente raiz e roteamento entre páginas
 │   ├── App.css             # Estilos globais
 │   ├── HomePage.js         # Página institucional da AAI
-│   ├── ToolPage.js         # Página da ferramenta de transcrição
-│   └── index.js            # Ponto de entrada da aplicação
-├── package.json            # Dependências e scripts
-├── .gitignore             # Arquivos ignorados pelo Git
-└── README.md              # Documentação
+│   ├── ToolPage.js         # Ferramenta de transcrição com IA
+│   └── index.js            # Ponto de entrada
+├── .env.example            # Exemplo de variáveis de ambiente
+├── package.json
+└── .gitignore
 ```
 
-## Componentes Principais
+---
 
-### App.js
-Componente raiz que gerencia:
-- Estado global da aplicação
-- Navegação entre páginas (Home/Tool)
-- Header fixo com logo e botões de navegação
+## 🔌 Integração com o backend
 
-### HomePage.js
-Página institucional contendo:
-- Seção hero com logo da AAI
-- História da organização
-- Missão, visão e valores
-- Carrossel de ações
-- Footer com informações de contato e doação
+A ferramenta se comunica com a API backend via `POST /transcrever`:
 
-### ToolPage.js
-Ferramenta de transcrição com:
-- Upload de arquivos de mídia
-- Preview do arquivo selecionado
-- Integração com API de transcrição
-- Player de vídeo com legendas sincronizadas
-- Estados de loading e erro
-
-## Fluxo de Uso
-
-1. **Página Inicial**: Usuário conhece a AAI e sua missão
-2. **Navegação**: Clica em "Ir para a IA" no header
-3. **Upload**: Seleciona arquivo de vídeo ou áudio
-4. **Transcrição**: Clica em "Transcrever" e aguarda processamento
-5. **Visualização**: Assiste ao vídeo com legendas sincronizadas
-6. **Novo Arquivo**: Pode transcrever outro arquivo ou voltar ao início
-
-## Integração com Backend
-
-### Endpoint de Transcrição
-
-```javascript
-POST http://127.0.0.1:5000/transcrever
+**Request:**
+```
 Content-Type: multipart/form-data
+Body: video (file)
+```
 
-Body:
+**Response:**
+```json
 {
-  video: File
-}
-
-Response:
-{
-  segmentos: [
-    {
-      start: 0.0,
-      end: 2.5,
-      text: "Texto da legenda"
-    },
-    ...
+  "segmentos": [
+    { "start": 0.0, "end": 2.5, "text": "Texto da legenda" },
+    { "start": 2.5, "end": 5.0, "text": "Continuação da legenda" }
   ]
 }
 ```
 
-### Tratamento de Erros
+---
 
-A aplicação trata os seguintes cenários:
-- Arquivo não selecionado
-- Erro de conexão com backend
-- Resposta de erro do servidor
-- Arquivo em formato inválido
+## 🐛 Problemas comuns
 
-## Customização
-
-### Cores Principais
-
-```css
---primary-color: #c90606;      /* Vermelho principal */
---primary-hover: #a10505;      /* Vermelho hover */
---background: rgb(240, 242, 212); /* Bege claro */
---text-dark: #333;             /* Texto escuro */
---white: #ffffff;              /* Branco */
+**Erro de CORS ao chamar o backend:**
+Configure `flask-cors` no backend:
+```python
+from flask_cors import CORS
+CORS(app)
 ```
 
-### Fontes
+**Vídeo não carrega ou legendas não aparecem:**
+Verifique se o formato do arquivo é suportado (`.mp4`, `.webm`, `.ogg` para vídeo; `.mp3`, `.wav` para áudio) e se o backend está rodando na porta correta.
 
-- **Principal**: Poppins (Google Fonts)
-- **Pesos**: 400 (Regular), 500 (Medium), 700 (Bold)
+---
 
-## Responsividade
+## 🤝 Como contribuir
 
-O design é totalmente responsivo com breakpoints em:
-- **Desktop**: > 768px (3 colunas)
-- **Tablet/Mobile**: ≤ 768px (1 coluna)
-
-## Performance
-
-### Otimizações Implementadas
-
-- Lazy loading de imagens
-- Componentes funcionais com Hooks
-- CSS otimizado sem bibliotecas pesadas
-- Build otimizado com minificação
-- Code splitting automático
-
-## Segurança
-
-### Considerações
-
-- Validação de tipos de arquivo no cliente
-- Sanitização de URLs de vídeo
-- Sem armazenamento local de arquivos sensíveis
-- CORS configurado para ambiente de desenvolvimento
-
-### Configuração de Variáveis de Ambiente
-
-Crie um arquivo `.env` na raiz:
-
-```bash
-REACT_APP_API_URL=http://seu-backend.com
-```
-
-Atualize a URL da API em `ToolPage.js`:
-
-```javascript
-const response = await fetch(`${process.env.REACT_APP_API_URL}/transcrever`, {
-  // ...
-});
-```
-
-## Troubleshooting
-
-### Problemas Comuns
-
-**1. Erro de CORS**
-```
-Access to fetch at 'http://127.0.0.1:5000/transcrever' has been blocked by CORS policy
-```
-**Solução**: Configure CORS no backend Flask
-
-**2. Vídeo não carrega**
-```
-Failed to load resource: net::ERR_FILE_NOT_FOUND
-```
-**Solução**: Verifique o formato do arquivo e o tamanho
-
-**3. Legendas não aparecem**
-```
-currentSegment is undefined
-```
-**Solução**: Verifique o formato da resposta da API
-
-## Contribuindo
-
-Contribuições são bem-vindas! Para contribuir:
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/NovaFuncionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/minha-feature`)
+3. Commit suas mudanças (`git commit -m 'feat: adiciona minha feature'`)
+4. Push para a branch (`git push origin feature/minha-feature`)
 5. Abra um Pull Request
 
-### Diretrizes de Código
+---
 
-- Use componentes funcionais com Hooks
-- Mantenha componentes pequenos e reutilizáveis
-- Siga o padrão de nomenclatura camelCase
-- Comente código complexo
-- Teste em diferentes navegadores
+## 📄 Licença
 
-## Licença
+Projeto desenvolvido em parceria com a **Associação do Amor Inclusivo (AAI)** para fins educacionais e de inclusão social.
 
-Este projeto foi desenvolvido em parceria com a **Associação do Amor Inclusivo (AAI)** e está disponível para uso educacional e social.
+---
 
+## 👤 Autor
 
-💙 **Desenvolvido com amor e tecnologia para promover a inclusão social**
+**Daniel Rodrigues**
+- GitHub: [@DanielRodrigues-prog](https://github.com/DanielRodrigues-prog)
+- LinkedIn: [daniel-rodrigues-10305b239](https://www.linkedin.com/in/daniel-rodrigues-10305b239/)
 
-⚽ **LegendIA** - Quebrando barreiras através da tecnologia
+---
+
+*Desenvolvido com tecnologia para quebrar barreiras e promover a inclusão social. 💙*
